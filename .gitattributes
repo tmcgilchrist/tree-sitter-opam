@@ -1,0 +1,14 @@
+* text=auto eol=lf
+
+# Generated files
+src/parser.c linguist-generated
+src/node-types.json linguist-generated
+bindings/** linguist-generated
+
+# Documentation
+*.md linguist-documentation
+
+# Build artifacts
+Cargo.lock -diff
+package-lock.json -diff
+go.sum -diff

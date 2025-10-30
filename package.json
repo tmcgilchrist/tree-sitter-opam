@@ -1,0 +1,69 @@
+{
+  "name": "tree-sitter-opam",
+  "version": "0.1.0",
+  "description": "Tree-sitter grammar for opam package manager files",
+  "main": "bindings/node",
+  "types": "bindings/node",
+  "keywords": [
+    "tree-sitter",
+    "parser",
+    "opam",
+    "ocaml",
+    "package-manager",
+    "incremental"
+  ],
+  "author": "Tim McGilchrist <timmcgil@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tmcgilchrist/tree-sitter-opam.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tmcgilchrist/tree-sitter-opam/issues"
+  },
+  "dependencies": {
+    "node-addon-api": "^8.0.0",
+    "node-gyp-build": "^4.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.15.0",
+    "eslint-config-treesitter": "^1.0.2",
+    "prebuildify": "^6.0.1",
+    "tree-sitter": "^0.25.0",
+    "tree-sitter-cli": "^0.25.0"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.25.0"
+  },
+  "peerDependenciesMeta": {
+    "tree-sitter": {
+      "optional": true
+    }
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.opam",
+      "file-types": [
+        "opam"
+      ],
+      "highlights": "queries/highlights.scm",
+      "injections": "queries/injections.scm"
+    }
+  ],
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/**",
+    "queries/*",
+    "src/**"
+  ],
+  "scripts": {
+    "install": "node-gyp-build",
+    "lint": "eslint grammar.js",
+    "prebuildify": "prebuildify --napi --strip",
+    "prestart": "tree-sitter build --wasm",
+    "start": "tree-sitter playground",
+    "test": "node --test bindings/node/*_test.js"
+  }
+}

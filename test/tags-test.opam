@@ -1,0 +1,28 @@
+opam-version: "2.0"
+name: "test-package"
+version: "1.2.3"
+synopsis: "Test file for validating tags queries"
+
+# Test dependencies with various formats
+depends: [
+  "ocaml" {>= "4.08.0"}
+  "dune" {>= "2.0"}
+  "base"
+  "lwt" {>= "5.0" & < "6.0"}
+]
+
+# Test conflicts
+conflicts: [
+  "bad-package"
+  "another-bad"
+]
+
+# Test optional dependencies
+depopts: [
+  "optional-lib"
+]
+
+# Test build section
+build: [
+  ["make"]
+]

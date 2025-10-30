@@ -1,0 +1,205 @@
+================================================================================
+Simple dependency with version constraint
+================================================================================
+
+depends: [
+  "ocaml" {>= "4.08.0"}
+]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (option_value
+            value: (value
+              (atom
+                (string)))
+            options: (value
+              (prefix_relop
+                operator: (relop)
+                value: (atom
+                  (string))))))))))
+
+================================================================================
+Multiple version constraints with AND
+================================================================================
+
+depends: [
+  "ocaml" {>= "4.08.0" & < "5.5.0"}
+]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (option_value
+            value: (value
+              (atom
+                (string)))
+            options: (value
+              (logop_value
+                left: (value
+                  (prefix_relop
+                    operator: (relop)
+                    value: (atom
+                      (string))))
+                right: (value
+                  (prefix_relop
+                    operator: (relop)
+                    value: (atom
+                      (string))))))))))))
+
+================================================================================
+Dependencies with filters
+================================================================================
+
+depends: [
+  "cppo" {build & >= "1.1.0"}
+  "odoc" {with-doc & >= "2.3.0"}
+  "bisect_ppx" {with-test}
+]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (option_value
+            value: (value
+              (atom
+                (string)))
+            options: (value
+              (logop_value
+                left: (value
+                  (atom
+                    (ident)))
+                right: (value
+                  (prefix_relop
+                    operator: (relop)
+                    value: (atom
+                      (string))))))))
+        values: (value
+          (option_value
+            value: (value
+              (atom
+                (string)))
+            options: (value
+              (logop_value
+                left: (value
+                  (atom
+                    (ident)))
+                right: (value
+                  (prefix_relop
+                    operator: (relop)
+                    value: (atom
+                      (string))))))))
+        values: (value
+          (option_value
+            value: (value
+              (atom
+                (string)))
+            options: (value
+              (atom
+                (ident)))))))))
+
+================================================================================
+Exact version match
+================================================================================
+
+depends: [
+  "ocamlformat" {with-dev-setup & = "0.26.2"}
+]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (option_value
+            value: (value
+              (atom
+                (string)))
+            options: (value
+              (logop_value
+                left: (value
+                  (atom
+                    (ident)))
+                right: (value
+                  (prefix_relop
+                    operator: (relop)
+                    value: (atom
+                      (string))))))))))))
+
+================================================================================
+Optional dependencies (depopts)
+================================================================================
+
+depopts: ["base-threads" "base-unix" "conf-libev"]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (atom
+            (string)))
+        values: (value
+          (atom
+            (string)))
+        values: (value
+          (atom
+            (string)))))))
+
+================================================================================
+Conflicts section
+================================================================================
+
+conflicts: [
+  "merlin" {< "3.4.0"}
+  "jbuilder" {= "transition"}
+]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (option_value
+            value: (value
+              (atom
+                (string)))
+            options: (value
+              (prefix_relop
+                operator: (relop)
+                value: (atom
+                  (string))))))
+        values: (value
+          (option_value
+            value: (value
+              (atom
+                (string)))
+            options: (value
+              (prefix_relop
+                operator: (relop)
+                value: (atom
+                  (string))))))))))

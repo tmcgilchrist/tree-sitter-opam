@@ -1,0 +1,36 @@
+opam-version: "2.0"
+name: "example-package"
+version: "1.0.0"
+synopsis: "An example opam package"
+description: """
+This is a longer description
+that spans multiple lines.
+"""
+maintainer: "user@example.com"
+authors: ["User Name" "Another User"]
+homepage: "https://example.com"
+bug-reports: "https://github.com/user/repo/issues"
+dev-repo: "git+https://github.com/user/repo.git"
+license: "MIT"
+
+depends: [
+  "ocaml" {>= "4.08.0"}
+  "dune" {>= "2.0.0"}
+  "base" {>= "v0.14" & < "v0.16"}
+]
+
+build: [
+  ["dune" "subst"] {dev}
+  ["dune" "build" "-p" name "-j" jobs]
+]
+
+install: [
+  ["dune" "install" "-p" name]
+]
+
+# This is a comment
+available: os != "win32"
+
+setenv: [
+  PATH += "/usr/local/bin"
+]
