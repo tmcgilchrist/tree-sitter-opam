@@ -1,0 +1,275 @@
+================================================================================
+Simple build command
+================================================================================
+
+build: [
+  ["dune" "build" "-p" name "-j" jobs]
+]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (list
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (ident)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (ident)))))))))
+
+================================================================================
+Build with conditional step
+================================================================================
+
+build: [
+  ["dune" "subst"] {dev}
+  ["dune" "build" "-p" name "-j" jobs]
+]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (option_value
+            value: (value
+              (list
+                values: (value
+                  (atom
+                    (string)))
+                values: (value
+                  (atom
+                    (string)))))
+            options: (value
+              (atom
+                (ident)))))
+        values: (value
+          (list
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (ident)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (ident)))))))))
+
+================================================================================
+Complex build with multiple conditionals
+================================================================================
+
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (option_value
+            value: (value
+              (list
+                values: (value
+                  (atom
+                    (string)))
+                values: (value
+                  (atom
+                    (string)))))
+            options: (value
+              (atom
+                (ident)))))
+        values: (value
+          (list
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (ident)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (ident)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (option_value
+                value: (value
+                  (atom
+                    (string)))
+                options: (value
+                  (atom
+                    (ident)))))
+            values: (value
+              (option_value
+                value: (value
+                  (atom
+                    (string)))
+                options: (value
+                  (atom
+                    (ident)))))))))))
+
+================================================================================
+Build with variable interpolation
+================================================================================
+
+build: [
+  [
+    "dune"
+    "exec"
+    "-p"
+    name
+    "src/unix/config/discover.exe"
+    "--"
+    "--save"
+    "--use-libev" "%{conf-libev:installed}%"
+  ]
+]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (list
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (ident)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (string)))))))))
+
+================================================================================
+OCaml bootstrap build
+================================================================================
+
+build: [
+  ["ocaml" "boot/bootstrap.ml" "-j" jobs]
+  ["./_boot/dune.exe" "build" "dune.install" "--release" "--profile" "dune-bootstrap" "-j" jobs]
+]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (list
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (ident)))))
+        values: (value
+          (list
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (ident)))))))))

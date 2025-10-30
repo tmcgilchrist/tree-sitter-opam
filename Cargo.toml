@@ -1,0 +1,27 @@
+[package]
+name = "tree-sitter-opam"
+description = "Tree-sitter grammar for opam package manager files"
+version = "0.1.0"
+authors = ["Tim McGilchrist <timmcgil@gmail.com>"]
+keywords = ["incremental", "parsing", "opam", "ocaml"]
+categories = ["parsing", "text-editors"]
+repository = "https://github.com/tmcgilchrist/tree-sitter-opam"
+edition = "2021"
+license = "MIT"
+readme = "README.md"
+autoexamples = false
+
+build = "bindings/rust/build.rs"
+include = ["LICENSE", "bindings/rust/*", "grammar.js", "queries/*", "src/*", "tree-sitter.json"]
+
+[lib]
+path = "bindings/rust/lib.rs"
+
+[dependencies]
+tree-sitter-language = "0.1"
+
+[build-dependencies]
+cc = "1.1"
+
+[dev-dependencies]
+tree-sitter = "0.25"

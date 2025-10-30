@@ -1,0 +1,166 @@
+================================================================================
+OS filter
+================================================================================
+
+available: os != "win32"
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (relop_value
+        left: (atom
+          (ident))
+        operator: (relop)
+        right: (atom
+          (string))))))
+
+================================================================================
+Architecture filter
+================================================================================
+
+available: arch != "x86_32"
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (relop_value
+        left: (atom
+          (ident))
+        operator: (relop)
+        right: (atom
+          (string))))))
+
+================================================================================
+Opam version filter
+================================================================================
+
+available: opam-version >= "2.1.0"
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (relop_value
+        left: (atom
+          (ident))
+        operator: (relop)
+        right: (atom
+          (string))))))
+
+================================================================================
+Complex OS filter with AND
+================================================================================
+
+available: os != "win32" & arch = "x86_64"
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (logop_value
+        left: (value
+          (relop_value
+            left: (atom
+              (ident))
+            operator: (relop)
+            right: (atom
+              (string))))
+        right: (value
+          (relop_value
+            left: (atom
+              (ident))
+            operator: (relop)
+            right: (atom
+              (string))))))))
+
+================================================================================
+Complex filter with OR
+================================================================================
+
+available: os = "linux" | os = "macos"
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (logop_value
+        left: (value
+          (env_binding
+            variable: (atom
+              (ident))
+            operator: (envop)
+            value: (atom
+              (string))))
+        right: (value
+          (relop_value
+            left: (atom
+              (ident))
+            operator: (relop)
+            right: (atom
+              (string))))))))
+
+================================================================================
+Negation filter
+================================================================================
+
+depends: [
+  "package" {!windows}
+]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (option_value
+            value: (value
+              (atom
+                (string)))
+            options: (value
+              (pfxop_value
+                operator: (pfxop)
+                value: (value
+                  (atom
+                    (ident)))))))))))
+
+================================================================================
+Defined check filter
+================================================================================
+
+depends: [
+  "package" {?installed}
+]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (option_value
+            value: (value
+              (atom
+                (string)))
+            options: (value
+              (pfxop_value
+                operator: (pfxop)
+                value: (value
+                  (atom
+                    (ident)))))))))))

@@ -1,0 +1,205 @@
+================================================================================
+Simple variable
+================================================================================
+
+opam-version: "2.0"
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (atom
+        (string)))))
+
+================================================================================
+Variable with list value
+================================================================================
+
+depends: [
+  "ocaml" {>= "4.08.0"}
+  "dune" {>= "2.0"}
+]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (option_value
+            value: (value
+              (atom
+                (string)))
+            options: (value
+              (prefix_relop
+                operator: (relop)
+                value: (atom
+                  (string))))))
+        values: (value
+          (option_value
+            value: (value
+              (atom
+                (string)))
+            options: (value
+              (prefix_relop
+                operator: (relop)
+                value: (atom
+                  (string))))))))))
+
+================================================================================
+Section without name
+================================================================================
+
+build: [
+  ["./configure"]
+  ["dune" "build" "-p" name]
+]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (list
+            values: (value
+              (atom
+                (string)))))
+        values: (value
+          (list
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (ident)))))))))
+
+================================================================================
+Section with name
+================================================================================
+
+url {
+  src: "https://example.com/package.tar.gz"
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    kind: (ident)
+    items: (variable
+      name: (ident)
+      value: (value
+        (atom
+          (string))))))
+
+================================================================================
+Comments
+================================================================================
+
+# This is a line comment
+opam-version: "2.0"
+(* This is a block comment *)
+version: "1.0"
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (variable
+    name: (ident)
+    value: (value
+      (atom
+        (string))))
+  (comment)
+  (variable
+    name: (ident)
+    value: (value
+      (atom
+        (string)))))
+
+================================================================================
+Logical operations
+================================================================================
+
+available: os != "win32" & arch = "x86_64"
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (logop_value
+        left: (value
+          (relop_value
+            left: (atom
+              (ident))
+            operator: (relop)
+            right: (atom
+              (string))))
+        right: (value
+          (relop_value
+            left: (atom
+              (ident))
+            operator: (relop)
+            right: (atom
+              (string))))))))
+
+================================================================================
+Environment binding
+================================================================================
+
+setenv: PATH += "/usr/local/bin"
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (env_binding
+        variable: (atom
+          (ident))
+        operator: (envop)
+        value: (atom
+          (string))))))
+
+================================================================================
+Prefix operations
+================================================================================
+
+depends: [
+  "package" {!system}
+]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (option_value
+            value: (value
+              (atom
+                (string)))
+            options: (value
+              (pfxop_value
+                operator: (pfxop)
+                value: (value
+                  (atom
+                    (ident)))))))))))

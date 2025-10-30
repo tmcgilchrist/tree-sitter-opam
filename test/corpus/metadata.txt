@@ -1,0 +1,140 @@
+================================================================================
+Maintainer list
+================================================================================
+
+maintainer: ["Jane Street Group, LLC <opensource@janestreet.com>"]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (atom
+            (string)))))))
+
+================================================================================
+Multiple maintainers
+================================================================================
+
+maintainer: [
+  "Raphaël Proust <code@bnwr.net>"
+  "Anton Bachin <antonbachin@yahoo.com>"
+]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (atom
+            (string)))
+        values: (value
+          (atom
+            (string)))))))
+
+================================================================================
+Authors list
+================================================================================
+
+authors: ["Jérôme Vouillon" "Jérémie Dimino"]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (atom
+            (string)))
+        values: (value
+          (atom
+            (string)))))))
+
+================================================================================
+Custom x-fields
+================================================================================
+
+x-commit-hash: "76c0c3941798f81dcc13a305d7abb120c191f5fa"
+x-maintenance-intent: ["(latest)"]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (atom
+        (string))))
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (atom
+            (string)))))))
+
+================================================================================
+Flags
+================================================================================
+
+flags: avoid-version
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (atom
+        (ident)))))
+
+================================================================================
+Multiple flags
+================================================================================
+
+flags: [light-uninstall verbose plugin-install]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (atom
+            (ident)))
+        values: (value
+          (atom
+            (ident)))
+        values: (value
+          (atom
+            (ident)))))))
+
+================================================================================
+Tags
+================================================================================
+
+tags: ["org:ocaml" "topics:build-system"]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (atom
+            (string)))
+        values: (value
+          (atom
+            (string)))))))

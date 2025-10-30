@@ -1,0 +1,134 @@
+================================================================================
+URL section with checksum
+================================================================================
+
+url {
+  src: "https://example.com/package.tar.gz"
+  checksum: [
+    "sha256=abc123"
+    "sha512=def456"
+  ]
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    kind: (ident)
+    items: (variable
+      name: (ident)
+      value: (value
+        (atom
+          (string))))
+    items: (variable
+      name: (ident)
+      value: (value
+        (list
+          values: (value
+            (atom
+              (string)))
+          values: (value
+            (atom
+              (string))))))))
+
+================================================================================
+URL section with md5 checksum
+================================================================================
+
+url {
+  src: "https://github.com/user/repo/archive/v1.0.tar.gz"
+  checksum: [
+    "md5=743a141234e04210e295980f7a78a6d9"
+    "sha512=61b415f4fb12c78d30649fff1aabe3a475eea926ce6edb7774031f4dc7f37ea5"
+  ]
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    kind: (ident)
+    items: (variable
+      name: (ident)
+      value: (value
+        (atom
+          (string))))
+    items: (variable
+      name: (ident)
+      value: (value
+        (list
+          values: (value
+            (atom
+              (string)))
+          values: (value
+            (atom
+              (string))))))))
+
+================================================================================
+Named section
+================================================================================
+
+extra-source "patch.diff" {
+  src: "https://example.com/patch.diff"
+  checksum: "sha256=xyz789"
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    kind: (ident)
+    name: (string)
+    items: (variable
+      name: (ident)
+      value: (value
+        (atom
+          (string))))
+    items: (variable
+      name: (ident)
+      value: (value
+        (atom
+          (string))))))
+
+================================================================================
+Empty section
+================================================================================
+
+extra-files {
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    kind: (ident)))
+
+================================================================================
+Multiple sections
+================================================================================
+
+url {
+  src: "https://example.com/package.tar.gz"
+}
+
+extra-files {
+  checksum: "sha256=abc123"
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (section
+    kind: (ident)
+    items: (variable
+      name: (ident)
+      value: (value
+        (atom
+          (string)))))
+  (section
+    kind: (ident)
+    items: (variable
+      name: (ident)
+      value: (value
+        (atom
+          (string))))))

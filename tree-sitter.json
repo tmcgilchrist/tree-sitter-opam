@@ -1,0 +1,15 @@
+{
+  "grammars": [
+    {
+      "name": "opam",
+      "scope": "source.opam",
+      "path": ".",
+      "file-types": ["opam"],
+      "highlights": "queries/highlights.scm",
+      "injections": "queries/injections.scm"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0"
+  }
+}

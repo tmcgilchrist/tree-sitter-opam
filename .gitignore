@@ -1,0 +1,9 @@
+.direnv/
+node_modules/
+target/
+build/
+*.egg-info/
+dist/
+__pycache__/
+*.pyc
+.pytest_cache/
