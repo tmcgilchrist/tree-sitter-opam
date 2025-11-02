@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv:*)",
+      "Bash(tree-sitter test:*)",
+      "Read(//Users/tsmc/code/elisp/tree-sitter-dune/emillon/tree-sitter-dune/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

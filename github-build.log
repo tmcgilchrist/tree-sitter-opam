@@ -1,0 +1,233 @@
+2025-10-31T01:47:24.1293473Z Current runner version: '2.328.0'
+2025-10-31T01:47:24.1328803Z ##[group]Runner Image Provisioner
+2025-10-31T01:47:24.1330129Z Hosted Compute Agent
+2025-10-31T01:47:24.1331177Z Version: 20250912.392
+2025-10-31T01:47:24.1332642Z Commit: d921fda672a98b64f4f82364647e2f10b2267d0b
+2025-10-31T01:47:24.1333814Z Build Date: 2025-09-12T15:23:14Z
+2025-10-31T01:47:24.1334707Z ##[endgroup]
+2025-10-31T01:47:24.1335704Z ##[group]Operating System
+2025-10-31T01:47:24.1336570Z Ubuntu
+2025-10-31T01:47:24.1337476Z 24.04.3
+2025-10-31T01:47:24.1338222Z LTS
+2025-10-31T01:47:24.1339018Z ##[endgroup]
+2025-10-31T01:47:24.1339950Z ##[group]Runner Image
+2025-10-31T01:47:24.1340909Z Image: ubuntu-24.04
+2025-10-31T01:47:24.1341800Z Version: 20250929.60.1
+2025-10-31T01:47:24.1343831Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250929.60/images/ubuntu/Ubuntu2404-Readme.md
+2025-10-31T01:47:24.1346590Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250929.60
+2025-10-31T01:47:24.1348360Z ##[endgroup]
+2025-10-31T01:47:24.1350187Z ##[group]GITHUB_TOKEN Permissions
+2025-10-31T01:47:24.1353228Z Contents: read
+2025-10-31T01:47:24.1354111Z Metadata: read
+2025-10-31T01:47:24.1354866Z Packages: read
+2025-10-31T01:47:24.1355819Z ##[endgroup]
+2025-10-31T01:47:24.1359135Z Secret source: Actions
+2025-10-31T01:47:24.1360454Z Prepare workflow directory
+2025-10-31T01:47:24.1840223Z Prepare all required actions
+2025-10-31T01:47:24.1897986Z Getting action download info
+2025-10-31T01:47:24.4016870Z Download action repository 'actions/checkout@v4' (SHA:08eba0b27e820071cde6df949e0beb9ba4906955)
+2025-10-31T01:47:24.5942499Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2025-10-31T01:47:24.7710864Z Complete job name: ESLint
+2025-10-31T01:47:24.8419737Z ##[group]Run actions/checkout@v4
+2025-10-31T01:47:24.8420633Z with:
+2025-10-31T01:47:24.8421119Z   repository: tmcgilchrist/tree-sitter-opam
+2025-10-31T01:47:24.8421864Z   token: ***
+2025-10-31T01:47:24.8422572Z   ssh-strict: true
+2025-10-31T01:47:24.8422998Z   ssh-user: git
+2025-10-31T01:47:24.8423428Z   persist-credentials: true
+2025-10-31T01:47:24.8423904Z   clean: true
+2025-10-31T01:47:24.8424322Z   sparse-checkout-cone-mode: true
+2025-10-31T01:47:24.8424857Z   fetch-depth: 1
+2025-10-31T01:47:24.8425266Z   fetch-tags: false
+2025-10-31T01:47:24.8425697Z   show-progress: true
+2025-10-31T01:47:24.8426229Z   lfs: false
+2025-10-31T01:47:24.8426642Z   submodules: false
+2025-10-31T01:47:24.8427067Z   set-safe-directory: true
+2025-10-31T01:47:24.8427821Z ##[endgroup]
+2025-10-31T01:47:24.9492353Z Syncing repository: tmcgilchrist/tree-sitter-opam
+2025-10-31T01:47:24.9494349Z ##[group]Getting Git version info
+2025-10-31T01:47:24.9495272Z Working directory is '/home/runner/work/tree-sitter-opam/tree-sitter-opam'
+2025-10-31T01:47:24.9496371Z [command]/usr/bin/git version
+2025-10-31T01:47:24.9570195Z git version 2.51.0
+2025-10-31T01:47:24.9595684Z ##[endgroup]
+2025-10-31T01:47:24.9609800Z Temporarily overriding HOME='/home/runner/work/_temp/a9207bb0-545b-4ef8-8baa-18a0ab92135f' before making global git config changes
+2025-10-31T01:47:24.9622525Z Adding repository directory to the temporary git global config as a safe directory
+2025-10-31T01:47:24.9623866Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/tree-sitter-opam/tree-sitter-opam
+2025-10-31T01:47:24.9658081Z Deleting the contents of '/home/runner/work/tree-sitter-opam/tree-sitter-opam'
+2025-10-31T01:47:24.9661438Z ##[group]Initializing the repository
+2025-10-31T01:47:24.9666712Z [command]/usr/bin/git init /home/runner/work/tree-sitter-opam/tree-sitter-opam
+2025-10-31T01:47:24.9780506Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-10-31T01:47:24.9781869Z hint: is subject to change. To configure the initial branch name to use in all
+2025-10-31T01:47:24.9783589Z hint: of your new repositories, which will suppress this warning, call:
+2025-10-31T01:47:24.9784605Z hint:
+2025-10-31T01:47:24.9785392Z hint: 	git config --global init.defaultBranch <name>
+2025-10-31T01:47:24.9787274Z hint:
+2025-10-31T01:47:24.9788469Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-10-31T01:47:24.9790288Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-10-31T01:47:24.9791808Z hint:
+2025-10-31T01:47:24.9792765Z hint: 	git branch -m <name>
+2025-10-31T01:47:24.9793597Z hint:
+2025-10-31T01:47:24.9794693Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-10-31T01:47:24.9796860Z Initialized empty Git repository in /home/runner/work/tree-sitter-opam/tree-sitter-opam/.git/
+2025-10-31T01:47:24.9800348Z [command]/usr/bin/git remote add origin https://github.com/tmcgilchrist/tree-sitter-opam
+2025-10-31T01:47:24.9837863Z ##[endgroup]
+2025-10-31T01:47:24.9839196Z ##[group]Disabling automatic garbage collection
+2025-10-31T01:47:24.9842851Z [command]/usr/bin/git config --local gc.auto 0
+2025-10-31T01:47:24.9872599Z ##[endgroup]
+2025-10-31T01:47:24.9874048Z ##[group]Setting up auth
+2025-10-31T01:47:24.9880507Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-10-31T01:47:24.9912561Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-10-31T01:47:25.0252621Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-10-31T01:47:25.0285985Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-10-31T01:47:25.0508016Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-10-31T01:47:25.0541523Z ##[endgroup]
+2025-10-31T01:47:25.0542834Z ##[group]Fetching the repository
+2025-10-31T01:47:25.0559403Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +7eb85886273dd2e89edcdbcbb43162450062c45a:refs/remotes/origin/master
+2025-10-31T01:47:25.2361681Z From https://github.com/tmcgilchrist/tree-sitter-opam
+2025-10-31T01:47:25.2363004Z  * [new ref]         7eb85886273dd2e89edcdbcbb43162450062c45a -> origin/master
+2025-10-31T01:47:25.2393081Z ##[endgroup]
+2025-10-31T01:47:25.2393826Z ##[group]Determining the checkout info
+2025-10-31T01:47:25.2395301Z ##[endgroup]
+2025-10-31T01:47:25.2400459Z [command]/usr/bin/git sparse-checkout disable
+2025-10-31T01:47:25.2442450Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-10-31T01:47:25.2469884Z ##[group]Checking out the ref
+2025-10-31T01:47:25.2474433Z [command]/usr/bin/git checkout --progress --force -B master refs/remotes/origin/master
+2025-10-31T01:47:25.2567123Z Reset branch 'master'
+2025-10-31T01:47:25.2570020Z branch 'master' set up to track 'origin/master'.
+2025-10-31T01:47:25.2576185Z ##[endgroup]
+2025-10-31T01:47:25.2610462Z [command]/usr/bin/git log -1 --format=%H
+2025-10-31T01:47:25.2631867Z 7eb85886273dd2e89edcdbcbb43162450062c45a
+2025-10-31T01:47:25.2871063Z ##[group]Run actions/setup-node@v4
+2025-10-31T01:47:25.2871637Z with:
+2025-10-31T01:47:25.2872216Z   node-version: 20
+2025-10-31T01:47:25.2872640Z   cache: npm
+2025-10-31T01:47:25.2873026Z   always-auth: false
+2025-10-31T01:47:25.2873451Z   check-latest: false
+2025-10-31T01:47:25.2874025Z   token: ***
+2025-10-31T01:47:25.2874408Z ##[endgroup]
+2025-10-31T01:47:25.4620975Z Found in cache @ /opt/hostedtoolcache/node/20.19.5/x64
+2025-10-31T01:47:25.4625701Z ##[group]Environment details
+2025-10-31T01:47:25.8582708Z node: v20.19.5
+2025-10-31T01:47:25.8583869Z npm: 10.8.2
+2025-10-31T01:47:25.8584815Z yarn: 1.22.22
+2025-10-31T01:47:25.8586898Z ##[endgroup]
+2025-10-31T01:47:25.8608990Z [command]/opt/hostedtoolcache/node/20.19.5/x64/bin/npm config get cache
+2025-10-31T01:47:25.9787511Z /home/runner/.npm
+2025-10-31T01:47:26.1214378Z Cache hit for: node-cache-Linux-x64-npm-6a30e0435f19b1eae93b167dafd1e4e92e02fa6267250bb67b175be77eefa31c
+2025-10-31T01:47:26.2342322Z Received 3482057 of 3482057 (100.0%), 43.7 MBs/sec
+2025-10-31T01:47:26.2344581Z Cache Size: ~3 MB (3482057 B)
+2025-10-31T01:47:26.2369472Z [command]/usr/bin/tar -xf /home/runner/work/_temp/8b0039c6-1be0-4a11-ae6b-d4a80e9a1972/cache.tzst -P -C /home/runner/work/tree-sitter-opam/tree-sitter-opam --use-compress-program unzstd
+2025-10-31T01:47:26.2694756Z Cache restored successfully
+2025-10-31T01:47:26.2707969Z Cache restored from key: node-cache-Linux-x64-npm-6a30e0435f19b1eae93b167dafd1e4e92e02fa6267250bb67b175be77eefa31c
+2025-10-31T01:47:26.2863203Z ##[group]Run npm ci
+2025-10-31T01:47:26.2864233Z [36;1mnpm ci[0m
+2025-10-31T01:47:26.2910137Z shell: /usr/bin/bash -e {0}
+2025-10-31T01:47:26.2911210Z ##[endgroup]
+2025-10-31T01:47:56.5816269Z
+2025-10-31T01:47:56.5824618Z > tree-sitter-opam@0.1.0 install
+2025-10-31T01:47:56.5825253Z > node-gyp-build
+2025-10-31T01:47:56.5825488Z
+2025-10-31T01:47:56.6697052Z gyp info it worked if it ends with ok
+2025-10-31T01:47:56.6698182Z gyp info using node-gyp@10.1.0
+2025-10-31T01:47:56.6698844Z gyp info using node@20.19.5 | linux | x64
+2025-10-31T01:47:56.7315043Z gyp info find Python using Python version 3.12.3 found at "/usr/bin/python3"
+2025-10-31T01:47:56.8154690Z
+2025-10-31T01:47:56.8215470Z gyp info spawn /usr/bin/python3
+2025-10-31T01:47:56.8233180Z gyp info spawn args [
+2025-10-31T01:47:56.8234423Z gyp info spawn args '/opt/hostedtoolcache/node/20.19.5/x64/lib/node_modules/npm/node_modules/node-gyp/gyp/gyp_main.py',
+2025-10-31T01:47:56.8235413Z gyp info spawn args 'binding.gyp',
+2025-10-31T01:47:56.8235974Z gyp info spawn args '-f',
+2025-10-31T01:47:56.8236419Z gyp info spawn args 'make',
+2025-10-31T01:47:56.8236885Z gyp info spawn args '-I',
+2025-10-31T01:47:56.8237743Z gyp info spawn args '/home/runner/work/tree-sitter-opam/tree-sitter-opam/build/config.gypi',
+2025-10-31T01:47:56.8238519Z gyp info spawn args '-I',
+2025-10-31T01:47:56.8239517Z gyp info spawn args '/opt/hostedtoolcache/node/20.19.5/x64/lib/node_modules/npm/node_modules/node-gyp/addon.gypi',
+2025-10-31T01:47:56.8240449Z gyp info spawn args '-I',
+2025-10-31T01:47:56.8241203Z gyp info spawn args '/home/runner/.cache/node-gyp/20.19.5/include/node/common.gypi',
+2025-10-31T01:47:56.8242237Z gyp info spawn args '-Dlibrary=shared_library',
+2025-10-31T01:47:56.8242863Z gyp info spawn args '-Dvisibility=default',
+2025-10-31T01:47:56.8243682Z gyp info spawn args '-Dnode_root_dir=/home/runner/.cache/node-gyp/20.19.5',
+2025-10-31T01:47:56.8244873Z gyp info spawn args '-Dnode_gyp_dir=/opt/hostedtoolcache/node/20.19.5/x64/lib/node_modules/npm/node_modules/node-gyp',
+2025-10-31T01:47:56.8246189Z gyp info spawn args '-Dnode_lib_file=/home/runner/.cache/node-gyp/20.19.5/<(target_arch)/node.lib',
+2025-10-31T01:47:56.8247363Z gyp info spawn args '-Dmodule_root_dir=/home/runner/work/tree-sitter-opam/tree-sitter-opam',
+2025-10-31T01:47:56.8248143Z gyp info spawn args '-Dnode_engine=v8',
+2025-10-31T01:47:56.8248674Z gyp info spawn args '--depth=.',
+2025-10-31T01:47:56.8249249Z gyp info spawn args '--no-parallel',
+2025-10-31T01:47:56.8249870Z gyp info spawn args '--generator-output',
+2025-10-31T01:47:56.8250358Z gyp info spawn args 'build',
+2025-10-31T01:47:56.8250898Z gyp info spawn args '-Goutput_dir=.'
+2025-10-31T01:47:56.8251382Z gyp info spawn args ]
+2025-10-31T01:47:56.9411580Z gyp info spawn make
+2025-10-31T01:47:56.9412921Z gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+2025-10-31T01:47:56.9423094Z make: Entering directory '/home/runner/work/tree-sitter-opam/tree-sitter-opam/build'
+2025-10-31T01:47:56.9430875Z   TOUCH Release/obj.target/node_modules/node-addon-api/node_addon_api_except.stamp
+2025-10-31T01:47:56.9475931Z   CXX(target) Release/obj.target/tree_sitter_opam_binding/bindings/node/binding.o
+2025-10-31T01:47:58.0181901Z   CC(target) Release/obj.target/tree_sitter_opam_binding/src/parser.o
+2025-10-31T01:47:58.1680382Z   SOLINK_MODULE(target) Release/obj.target/tree_sitter_opam_binding.node
+2025-10-31T01:47:58.2161310Z   COPY Release/tree_sitter_opam_binding.node
+2025-10-31T01:47:58.2201562Z make: Leaving directory '/home/runner/work/tree-sitter-opam/tree-sitter-opam/build'
+2025-10-31T01:47:58.2218534Z gyp info ok
+2025-10-31T01:47:58.2367667Z
+2025-10-31T01:47:58.2368252Z added 126 packages, and audited 127 packages in 32s
+2025-10-31T01:47:58.2368686Z
+2025-10-31T01:47:58.2368917Z 28 packages are looking for funding
+2025-10-31T01:47:58.2371487Z   run `npm fund` for details
+2025-10-31T01:47:58.2380521Z
+2025-10-31T01:47:58.2380696Z found 0 vulnerabilities
+2025-10-31T01:47:58.2516887Z ##[group]Run npm run lint
+2025-10-31T01:47:58.2517323Z [36;1mnpm run lint[0m
+2025-10-31T01:47:58.2562426Z shell: /usr/bin/bash -e {0}
+2025-10-31T01:47:58.2562806Z ##[endgroup]
+2025-10-31T01:47:58.3680144Z
+2025-10-31T01:47:58.3680609Z > tree-sitter-opam@0.1.0 lint
+2025-10-31T01:47:58.3681119Z > eslint grammar.js
+2025-10-31T01:47:58.3681354Z
+2025-10-31T01:47:58.8971441Z
+2025-10-31T01:47:58.8972397Z /home/runner/work/tree-sitter-opam/tree-sitter-opam/grammar.js
+2025-10-31T01:47:58.8996572Z ##[error]   42:32   error  Missing trailing comma                      comma-dangle
+2025-10-31T01:47:58.9004269Z ##[error]   52:12   error  Missing trailing comma                      comma-dangle
+2025-10-31T01:47:58.9005514Z ##[error]   66:22   error  Missing trailing comma                      comma-dangle
+2025-10-31T01:47:58.9006577Z ##[error]   76:56   error  Missing trailing comma                      comma-dangle
+2025-10-31T01:47:58.9007674Z ##[error]   83:56   error  Missing trailing comma                      comma-dangle
+2025-10-31T01:47:58.9008915Z ##[error]   94:14   error  Missing trailing comma                      comma-dangle
+2025-10-31T01:47:58.9009992Z ##[error]   95:10   error  Missing trailing comma                      comma-dangle
+2025-10-31T01:47:58.9011039Z ##[error]  103:68   error  Missing trailing comma                      comma-dangle
+2025-10-31T01:47:58.9078074Z ##[error]  107:68   error  Missing trailing comma                      comma-dangle
+2025-10-31T01:47:58.9080339Z ##[error]  108:10   error  Missing trailing comma                      comma-dangle
+2025-10-31T01:47:58.9082907Z ##[error]  118:33   error  Missing trailing comma                      comma-dangle
+2025-10-31T01:47:58.9084993Z ##[error]  119:10   error  Missing trailing comma                      comma-dangle
+2025-10-31T01:47:58.9087106Z ##[error]  129:33   error  Missing trailing comma                      comma-dangle
+2025-10-31T01:47:58.9089178Z ##[error]  130:10   error  Missing trailing comma                      comma-dangle
+2025-10-31T01:47:58.9091211Z ##[error]  137:64   error  Missing trailing comma                      comma-dangle
+2025-10-31T01:47:58.9093356Z ##[error]  144:65   error  Missing trailing comma                      comma-dangle
+2025-10-31T01:47:58.9095498Z ##[error]  171:14   error  Missing trailing comma                      comma-dangle
+2025-10-31T01:47:58.9097531Z ##[error]  174:112  error  Missing trailing comma                      comma-dangle
+2025-10-31T01:47:58.9098797Z ##[error]  184:17   error  Missing trailing comma                      comma-dangle
+2025-10-31T01:47:58.9099897Z ##[error]  197:28   error  Missing trailing comma                      comma-dangle
+2025-10-31T01:47:58.9101003Z ##[error]  198:14   error  Missing trailing comma                      comma-dangle
+2025-10-31T01:47:58.9102847Z ##[error]  199:12   error  Missing trailing comma                      comma-dangle
+2025-10-31T01:47:58.9104198Z ##[error]  200:10   error  Missing trailing comma                      comma-dangle
+2025-10-31T01:47:58.9105593Z ##[error]  208:13   error  'alpha' is assigned a value but never used  no-unused-vars
+2025-10-31T01:47:58.9107298Z ##[error]  209:13   error  'digit' is assigned a value but never used  no-unused-vars
+2025-10-31T01:47:58.9108465Z ##[error]  210:13   error  'ichar' is assigned a value but never used  no-unused-vars
+2025-10-31T01:47:58.9109563Z ##[error]  218:33   error  Missing trailing comma                      comma-dangle
+2025-10-31T01:47:58.9110983Z ##[error]  219:10   error  Missing trailing comma                      comma-dangle
+2025-10-31T01:47:58.9112297Z ##[error]  229:80   error  Missing trailing comma                      comma-dangle
+2025-10-31T01:47:58.9113046Z
+2025-10-31T01:47:58.9113445Z ✖ 29 problems (29 errors, 0 warnings)
+2025-10-31T01:47:58.9114069Z   26 errors and 0 warnings potentially fixable with the `--fix` option.
+2025-10-31T01:47:58.9114520Z
+2025-10-31T01:47:58.9147512Z ##[error]Process completed with exit code 1.
+2025-10-31T01:47:58.9232337Z Post job cleanup.
+2025-10-31T01:47:59.0170670Z [command]/usr/bin/git version
+2025-10-31T01:47:59.0207365Z git version 2.51.0
+2025-10-31T01:47:59.0250969Z Temporarily overriding HOME='/home/runner/work/_temp/0474801d-0584-4c0f-be15-8b9737410079' before making global git config changes
+2025-10-31T01:47:59.0252753Z Adding repository directory to the temporary git global config as a safe directory
+2025-10-31T01:47:59.0257778Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/tree-sitter-opam/tree-sitter-opam
+2025-10-31T01:47:59.0293014Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-10-31T01:47:59.0326023Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-10-31T01:47:59.0556873Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-10-31T01:47:59.0577869Z http.https://github.com/.extraheader
+2025-10-31T01:47:59.0590153Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-10-31T01:47:59.0620819Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-10-31T01:47:59.0944776Z Cleaning up orphan processes
