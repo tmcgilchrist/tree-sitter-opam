@@ -12,6 +12,10 @@
           "named": true
         },
         {
+          "type": "filter_ident",
+          "named": true
+        },
+        {
           "type": "ident",
           "named": true
         },
@@ -75,6 +79,11 @@
   },
   {
     "type": "envop",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "filter_ident",
     "named": true,
     "fields": {}
   },
@@ -508,6 +517,14 @@
     "named": false
   },
   {
+    "type": "build",
+    "named": false
+  },
+  {
+    "type": "dev",
+    "named": false
+  },
+  {
     "type": "escape_sequence",
     "named": true
   },
@@ -524,7 +541,27 @@
     "named": true
   },
   {
+    "type": "pinned",
+    "named": false
+  },
+  {
+    "type": "post",
+    "named": false
+  },
+  {
     "type": "true",
+    "named": false
+  },
+  {
+    "type": "with-dev-setup",
+    "named": false
+  },
+  {
+    "type": "with-doc",
+    "named": false
+  },
+  {
+    "type": "with-test",
     "named": false
   },
   {

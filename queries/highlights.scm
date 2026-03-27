@@ -30,5 +30,8 @@
 ["(" ")"] @punctuation.bracket
 ":" @punctuation.delimiter
 
+; Filter scope constants
+(filter_ident) @constant
+
 ; Identifiers (variable values)
 (ident) @variable

@@ -23,6 +23,8 @@ const PREC = {
 module.exports = grammar({
   name: 'opam',
 
+  word: ($) => $.ident,
+
   extras: ($) => [$.comment, /\s+/],
 
   conflicts: ($) => [
@@ -67,7 +69,11 @@ module.exports = grammar({
       ),
 
     // Atoms (base values)
-    atom: ($) => choice($.ident, $.bool, $.int, $.string),
+    atom: ($) => choice($.ident, $.bool, $.int, $.string, $.filter_ident),
+
+    // Filter scope constants (well-known identifiers in filter expressions)
+    filter_ident: ($) =>
+      choice('build', 'post', 'with-test', 'with-doc', 'with-dev-setup', 'pinned', 'dev'),
 
     // Groups: (value1 value2 ...)
     group: ($) =>
