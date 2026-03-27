@@ -42,6 +42,7 @@ jobs:
       - name: Run parser tests
         uses: tree-sitter/parser-test-action@v3
         with:
+          abi-version: '14'
           test-rust: ${{runner.os == 'Linux'}}
           test-node: true
           test-python: false

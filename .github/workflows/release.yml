@@ -24,7 +24,7 @@ jobs:
         run: npm install -g tree-sitter-cli
 
       - name: Generate parser
-        run: tree-sitter generate
+        run: tree-sitter generate --abi=14
 
       - name: Run tests
         run: tree-sitter test
@@ -48,7 +48,7 @@ jobs:
         run: npm install -g tree-sitter-cli
 
       - name: Generate parser
-        run: tree-sitter generate
+        run: tree-sitter generate --abi=14
 
       - name: Publish to NPM
         run: npm publish
@@ -76,7 +76,7 @@ jobs:
         run: npm install -g tree-sitter-cli
 
       - name: Generate parser
-        run: tree-sitter generate
+        run: tree-sitter generate --abi=14
 
       - name: Publish to crates.io
         run: cargo publish --token ${{ secrets.CARGO_TOKEN }}
