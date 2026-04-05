@@ -25,6 +25,8 @@ module.exports = grammar({
 
   word: ($) => $.ident,
 
+  externals: ($) => [$.block_comment],
+
   extras: ($) => [$.comment, /\s+/],
 
   conflicts: ($) => [
@@ -173,22 +175,44 @@ module.exports = grammar({
         // Regular quoted string
         seq(
           '"',
-          repeat(choice($._string_content, $.escape_sequence)),
+          repeat(choice($._string_content, $.escape_sequence, $.interpolation, $._bare_percent)),
           '"',
         ),
-        // Triple-quoted string (simplified handling)
-        seq('"""', alias(repeat(choice($._string_content_triple, $.escape_sequence)), 'string_content'), '"""'),
+        // Triple-quoted string
+        seq(
+          '"""',
+          alias(
+            repeat(choice($._string_content_triple, $.escape_sequence, $.interpolation, $._bare_percent)),
+            'string_content',
+          ),
+          '"""',
+        ),
       ),
 
     _string_content: ($) =>
-      token.immediate(prec(PREC.STRING, /[^"\\]+/)),
+      token.immediate(prec(PREC.STRING, /[^"\\%]+/)),
 
     _string_content_triple: ($) =>
       token.immediate(prec(PREC.STRING, choice(
-        /[^"\\]+/,
+        /[^"\\%]+/,
         /"[^"]/,
         /""[^"]/,
       ))),
+
+    // Variable interpolation: %{...}%
+    interpolation: ($) =>
+      seq(
+        token.immediate('%{'),
+        optional($.interpolation_content),
+        token.immediate('}%'),
+      ),
+
+    interpolation_content: ($) =>
+      token.immediate(/[^}]+/),
+
+    // Bare percent sign (not followed by '{')
+    _bare_percent: ($) =>
+      token.immediate('%'),
 
     escape_sequence: ($) =>
       token.immediate(
@@ -228,8 +252,8 @@ module.exports = grammar({
       choice(
         // Line comments starting with #
         token(prec(PREC.COMMENT, seq('#', /[^\n]*/))),
-        // Block comments (* ... *)
-        token(prec(PREC.COMMENT, seq('(*', /[^*]*\*+(?:[^)*][^*]*\*+)*/, ')'))),
+        // Block comments with nesting support (external scanner)
+        $.block_comment,
       ),
   },
 });

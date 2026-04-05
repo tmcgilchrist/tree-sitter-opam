@@ -39,7 +39,17 @@
     "type": "comment",
     "named": true,
     "extra": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "block_comment",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "env_binding",
@@ -101,6 +111,21 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "interpolation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "interpolation_content",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -340,6 +365,10 @@
         {
           "type": "escape_sequence",
           "named": true
+        },
+        {
+          "type": "interpolation",
+          "named": true
         }
       ]
     }
@@ -354,6 +383,10 @@
       "types": [
         {
           "type": "escape_sequence",
+          "named": true
+        },
+        {
+          "type": "interpolation",
           "named": true
         }
       ]
@@ -449,6 +482,14 @@
     "named": false
   },
   {
+    "type": "%",
+    "named": false
+  },
+  {
+    "type": "%{",
+    "named": false
+  },
+  {
     "type": "&",
     "named": false
   },
@@ -517,6 +558,10 @@
     "named": false
   },
   {
+    "type": "block_comment",
+    "named": true
+  },
+  {
     "type": "build",
     "named": false
   },
@@ -538,6 +583,10 @@
   },
   {
     "type": "int",
+    "named": true
+  },
+  {
+    "type": "interpolation_content",
     "named": true
   },
   {
@@ -574,6 +623,10 @@
   },
   {
     "type": "}",
+    "named": false
+  },
+  {
+    "type": "}%",
     "named": false
   },
   {

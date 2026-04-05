@@ -215,7 +215,9 @@ build: [
                 (string)))
             values: (value
               (atom
-                (string)))))))))
+                (string
+                  (interpolation
+                    (interpolation_content)))))))))))
 
 ================================================================================
 OCaml bootstrap build

@@ -600,6 +600,14 @@
                   {
                     "type": "SYMBOL",
                     "name": "escape_sequence"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "interpolation"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_bare_percent"
                   }
                 ]
               }
@@ -631,6 +639,14 @@
                     {
                       "type": "SYMBOL",
                       "name": "escape_sequence"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "interpolation"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_bare_percent"
                     }
                   ]
                 }
@@ -653,7 +669,7 @@
         "value": 1,
         "content": {
           "type": "PATTERN",
-          "value": "[^\"\\\\]+"
+          "value": "[^\"\\\\%]+"
         }
       }
     },
@@ -667,7 +683,7 @@
           "members": [
             {
               "type": "PATTERN",
-              "value": "[^\"\\\\]+"
+              "value": "[^\"\\\\%]+"
             },
             {
               "type": "PATTERN",
@@ -679,6 +695,51 @@
             }
           ]
         }
+      }
+    },
+    "interpolation": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "%{"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "interpolation_content"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "}%"
+          }
+        }
+      ]
+    },
+    "interpolation_content": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[^}]+"
+      }
+    },
+    "_bare_percent": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "%"
       }
     },
     "escape_sequence": {
@@ -809,28 +870,8 @@
           }
         },
         {
-          "type": "TOKEN",
-          "content": {
-            "type": "PREC",
-            "value": 0,
-            "content": {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "(*"
-                },
-                {
-                  "type": "PATTERN",
-                  "value": "[^*]*\\*+(?:[^)*][^*]*\\*+)*"
-                },
-                {
-                  "type": "STRING",
-                  "value": ")"
-                }
-              ]
-            }
-          }
+          "type": "SYMBOL",
+          "name": "block_comment"
         }
       ]
     }
@@ -852,7 +893,12 @@
     ]
   ],
   "precedences": [],
-  "externals": [],
+  "externals": [
+    {
+      "type": "SYMBOL",
+      "name": "block_comment"
+    }
+  ],
   "inline": [],
   "supertypes": [],
   "reserved": {}

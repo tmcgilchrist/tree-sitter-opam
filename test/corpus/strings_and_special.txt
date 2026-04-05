@@ -221,3 +221,109 @@ dev_repo: "git+https://github.com/user/repo.git"
     value: (value
       (atom
         (string)))))
+
+================================================================================
+Simple variable interpolation
+================================================================================
+
+name: "%{name}%"
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (atom
+        (string
+          (interpolation
+            (interpolation_content)))))))
+
+================================================================================
+Package-scoped variable interpolation
+================================================================================
+
+x: "%{conf-libev:installed}%"
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (atom
+        (string
+          (interpolation
+            (interpolation_content)))))))
+
+================================================================================
+Mixed text and interpolation
+================================================================================
+
+x: "Package %{name}% version %{version}%"
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (atom
+        (string
+          (interpolation
+            (interpolation_content))
+          (interpolation
+            (interpolation_content)))))))
+
+================================================================================
+Converter form interpolation
+================================================================================
+
+x: "%{pkg:var?yes:no}%"
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (atom
+        (string
+          (interpolation
+            (interpolation_content)))))))
+
+================================================================================
+Interpolation in triple-quoted string
+================================================================================
+
+x: """%{name}%"""
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (atom
+        (string
+          (interpolation
+            (interpolation_content)))))))
+
+================================================================================
+Multiple interpolations in one string
+================================================================================
+
+x: "%{name}%-%{version}%"
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (atom
+        (string
+          (interpolation
+            (interpolation_content))
+          (interpolation
+            (interpolation_content)))))))

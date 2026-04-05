@@ -123,7 +123,62 @@ version: "1.0"
     value: (value
       (atom
         (string))))
-  (comment)
+  (comment
+    (block_comment))
+  (variable
+    name: (ident)
+    value: (value
+      (atom
+        (string)))))
+
+================================================================================
+Nested block comments
+================================================================================
+
+(* outer (* inner *) outer *)
+opam-version: "2.0"
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment
+    (block_comment))
+  (variable
+    name: (ident)
+    value: (value
+      (atom
+        (string)))))
+
+================================================================================
+Double-nested block comments
+================================================================================
+
+(* a (* b (* c *) b *) a *)
+opam-version: "2.0"
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment
+    (block_comment))
+  (variable
+    name: (ident)
+    value: (value
+      (atom
+        (string)))))
+
+================================================================================
+Block comment with stars inside
+================================================================================
+
+(* this has ** stars ** inside *)
+opam-version: "2.0"
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment
+    (block_comment))
   (variable
     name: (ident)
     value: (value

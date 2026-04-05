@@ -10,6 +10,7 @@
 ; Strings
 (string) @string
 (escape_sequence) @string.escape
+(interpolation) @string.special
 
 ; Numbers
 (int) @number
