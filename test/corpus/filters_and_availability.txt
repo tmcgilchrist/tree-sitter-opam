@@ -164,3 +164,185 @@ depends: [
                 value: (value
                   (atom
                     (ident)))))))))))
+
+================================================================================
+Solo filter ident
+================================================================================
+
+depends: ["pkg" {build}]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (option_value
+            value: (value
+              (atom
+                (string)))
+            options: (value
+              (atom
+                (filter_ident)))))))))
+
+================================================================================
+Negated filter ident
+================================================================================
+
+depends: ["pkg" {!build}]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (option_value
+            value: (value
+              (atom
+                (string)))
+            options: (value
+              (pfxop_value
+                operator: (pfxop)
+                value: (value
+                  (atom
+                    (filter_ident)))))))))))
+
+================================================================================
+Combined filter idents
+================================================================================
+
+depends: ["pkg" {build & with-test}]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (option_value
+            value: (value
+              (atom
+                (string)))
+            options: (value
+              (logop_value
+                left: (value
+                  (atom
+                    (filter_ident)))
+                right: (value
+                  (atom
+                    (filter_ident)))))))))))
+
+================================================================================
+All seven filter idents
+================================================================================
+
+depends: [
+  "a" {build}
+  "b" {post}
+  "c" {with-test}
+  "d" {with-doc}
+  "e" {with-dev-setup}
+  "f" {pinned}
+  "g" {dev}
+]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (option_value
+            value: (value
+              (atom
+                (string)))
+            options: (value
+              (atom
+                (filter_ident)))))
+        values: (value
+          (option_value
+            value: (value
+              (atom
+                (string)))
+            options: (value
+              (atom
+                (filter_ident)))))
+        values: (value
+          (option_value
+            value: (value
+              (atom
+                (string)))
+            options: (value
+              (atom
+                (filter_ident)))))
+        values: (value
+          (option_value
+            value: (value
+              (atom
+                (string)))
+            options: (value
+              (atom
+                (filter_ident)))))
+        values: (value
+          (option_value
+            value: (value
+              (atom
+                (string)))
+            options: (value
+              (atom
+                (filter_ident)))))
+        values: (value
+          (option_value
+            value: (value
+              (atom
+                (string)))
+            options: (value
+              (atom
+                (filter_ident)))))
+        values: (value
+          (option_value
+            value: (value
+              (atom
+                (string)))
+            options: (value
+              (atom
+                (filter_ident)))))))))
+
+================================================================================
+Filter ident as field name stays ident
+================================================================================
+
+build: [
+  ["dune" "build" "-p" name]
+]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable
+    name: (ident)
+    value: (value
+      (list
+        values: (value
+          (list
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (string)))
+            values: (value
+              (atom
+                (ident)))))))))

@@ -83,7 +83,7 @@ depends: [
               (logop_value
                 left: (value
                   (atom
-                    (ident)))
+                    (filter_ident)))
                 right: (value
                   (prefix_relop
                     operator: (relop)
@@ -98,7 +98,7 @@ depends: [
               (logop_value
                 left: (value
                   (atom
-                    (ident)))
+                    (filter_ident)))
                 right: (value
                   (prefix_relop
                     operator: (relop)
@@ -111,7 +111,7 @@ depends: [
                 (string)))
             options: (value
               (atom
-                (ident)))))))))
+                (filter_ident)))))))))
 
 ================================================================================
 Exact version match
@@ -137,7 +137,7 @@ depends: [
               (logop_value
                 left: (value
                   (atom
-                    (ident)))
+                    (filter_ident)))
                 right: (value
                   (prefix_relop
                     operator: (relop)
