@@ -16,6 +16,10 @@ concurrency:
   group: ${{github.workflow}}-${{github.ref}}
   cancel-in-progress: true
 
+env:
+  # Keep in sync with TREE_SITTER_VERSION in ci.yml.
+  TREE_SITTER_VERSION: v0.27.0
+
 jobs:
   fuzz:
     name: Fuzz
@@ -27,4 +31,5 @@ jobs:
       - name: Fuzz parser
         uses: tree-sitter/fuzz-action@v4
         with:
+          tree-sitter-version: ${{env.TREE_SITTER_VERSION}}
           language: opam

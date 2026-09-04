@@ -24,6 +24,11 @@ concurrency:
   group: ${{github.workflow}}-${{github.ref}}
   cancel-in-progress: true
 
+env:
+  # Pinned so generated output cannot drift with upstream releases.
+  TREE_SITTER_VERSION: v0.27.0
+  TS_ABI_VERSION: '14'
+
 jobs:
   test:
     name: Test Parser
@@ -38,11 +43,17 @@ jobs:
 
       - name: Set up tree-sitter
         uses: tree-sitter/setup-action/cli@v2
+        with:
+          tree-sitter-ref: ${{env.TREE_SITTER_VERSION}}
+
+      - name: Report tree-sitter version
+        run: tree-sitter --version
+        shell: bash
 
       - name: Run parser tests
         uses: tree-sitter/parser-test-action@v3
         with:
-          abi-version: '14'
+          abi-version: ${{env.TS_ABI_VERSION}}
           test-rust: ${{runner.os == 'Linux'}}
           test-node: true
           test-python: false
@@ -63,6 +74,8 @@ jobs:
 
       - name: Set up tree-sitter
         uses: tree-sitter/setup-action/cli@v2
+        with:
+          tree-sitter-ref: ${{env.TREE_SITTER_VERSION}}
 
       - name: Parse example files
         uses: tree-sitter/parse-action@v4
@@ -79,6 +92,8 @@ jobs:
 
       - name: Set up tree-sitter
         uses: tree-sitter/setup-action/cli@v2
+        with:
+          tree-sitter-ref: ${{env.TREE_SITTER_VERSION}}
 
       - name: Test highlight queries
         run: tree-sitter highlight queries/highlights.scm --check
