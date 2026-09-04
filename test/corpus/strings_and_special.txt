@@ -12,9 +12,8 @@ that spans multiple lines.
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (atom
-        (string)))))
+    value: (atom
+      (string))))
 
 ================================================================================
 String with escape sequences
@@ -27,11 +26,10 @@ synopsis: "Line 1\nLine 2\tTabbed"
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (atom
-        (string
-          (escape_sequence)
-          (escape_sequence))))))
+    value: (atom
+      (string
+        (escape_sequence)
+        (escape_sequence)))))
 
 ================================================================================
 String with quotes
@@ -44,11 +42,10 @@ description: "This has \"quoted\" text"
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (atom
-        (string
-          (escape_sequence)
-          (escape_sequence))))))
+    value: (atom
+      (string
+        (escape_sequence)
+        (escape_sequence)))))
 
 ================================================================================
 Identifiers with special characters
@@ -65,17 +62,13 @@ depends: [
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (atom
-            (string)))
-        values: (value
-          (atom
-            (string)))
-        values: (value
-          (atom
-            (string)))))))
+    value: (list
+      values: (atom
+        (string))
+      values: (atom
+        (string))
+      values: (atom
+        (string)))))
 
 ================================================================================
 Version with tilde
@@ -88,9 +81,8 @@ version: "6.0.0~alpha00"
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (atom
-        (string)))))
+    value: (atom
+      (string))))
 
 ================================================================================
 Version with plus
@@ -105,18 +97,14 @@ depends: [
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (option_value
-            value: (value
-              (atom
-                (string)))
-            options: (value
-              (prefix_relop
-                operator: (relop)
-                value: (atom
-                  (string))))))))))
+    value: (list
+      values: (option_value
+        value: (atom
+          (string))
+        options: (prefix_relop
+          operator: (relop)
+          value: (atom
+            (string)))))))
 
 ================================================================================
 Boolean values
@@ -130,14 +118,12 @@ build-doc: false
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (atom
-        (bool))))
+    value: (atom
+      (bool)))
   (variable
     name: (ident)
-    value: (value
-      (atom
-        (bool)))))
+    value: (atom
+      (bool))))
 
 ================================================================================
 Integer values
@@ -151,14 +137,12 @@ some-count: -42
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (atom
-        (int))))
+    value: (atom
+      (int)))
   (variable
     name: (ident)
-    value: (value
-      (atom
-        (int)))))
+    value: (atom
+      (int))))
 
 ================================================================================
 Empty list
@@ -171,8 +155,7 @@ patches: []
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list))))
+    value: (list)))
 
 ================================================================================
 Empty group
@@ -185,8 +168,7 @@ extra: ()
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (group))))
+    value: (group)))
 
 ================================================================================
 Colon in identifier
@@ -201,11 +183,9 @@ post-messages: [
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (atom
-            (string)))))))
+    value: (list
+      values: (atom
+        (string)))))
 
 ================================================================================
 Underscores in identifier
@@ -218,9 +198,8 @@ dev_repo: "git+https://github.com/user/repo.git"
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (atom
-        (string)))))
+    value: (atom
+      (string))))
 
 ================================================================================
 Simple variable interpolation
@@ -233,11 +212,10 @@ name: "%{name}%"
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (atom
-        (string
-          (interpolation
-            (interpolation_content)))))))
+    value: (atom
+      (string
+        (interpolation
+          (interpolation_content))))))
 
 ================================================================================
 Package-scoped variable interpolation
@@ -250,11 +228,10 @@ x: "%{conf-libev:installed}%"
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (atom
-        (string
-          (interpolation
-            (interpolation_content)))))))
+    value: (atom
+      (string
+        (interpolation
+          (interpolation_content))))))
 
 ================================================================================
 Mixed text and interpolation
@@ -267,13 +244,12 @@ x: "Package %{name}% version %{version}%"
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (atom
-        (string
-          (interpolation
-            (interpolation_content))
-          (interpolation
-            (interpolation_content)))))))
+    value: (atom
+      (string
+        (interpolation
+          (interpolation_content))
+        (interpolation
+          (interpolation_content))))))
 
 ================================================================================
 Converter form interpolation
@@ -286,11 +262,10 @@ x: "%{pkg:var?yes:no}%"
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (atom
-        (string
-          (interpolation
-            (interpolation_content)))))))
+    value: (atom
+      (string
+        (interpolation
+          (interpolation_content))))))
 
 ================================================================================
 Interpolation in triple-quoted string
@@ -303,11 +278,10 @@ x: """%{name}%"""
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (atom
-        (string
-          (interpolation
-            (interpolation_content)))))))
+    value: (atom
+      (string
+        (interpolation
+          (interpolation_content))))))
 
 ================================================================================
 Multiple interpolations in one string
@@ -320,10 +294,9 @@ x: "%{name}%-%{version}%"
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (atom
-        (string
-          (interpolation
-            (interpolation_content))
-          (interpolation
-            (interpolation_content)))))))
+    value: (atom
+      (string
+        (interpolation
+          (interpolation_content))
+        (interpolation
+          (interpolation_content))))))

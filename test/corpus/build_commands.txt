@@ -11,28 +11,20 @@ build: [
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (list
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (ident)))
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (ident)))))))))
+    value: (list
+      values: (list
+        values: (atom
+          (string))
+        values: (atom
+          (string))
+        values: (atom
+          (string))
+        values: (atom
+          (ident))
+        values: (atom
+          (string))
+        values: (atom
+          (ident))))))
 
 ================================================================================
 Build with conditional step
@@ -48,41 +40,28 @@ build: [
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (option_value
-            value: (value
-              (list
-                values: (value
-                  (atom
-                    (string)))
-                values: (value
-                  (atom
-                    (string)))))
-            options: (value
-              (atom
-                (filter_ident)))))
-        values: (value
-          (list
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (ident)))
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (ident)))))))))
+    value: (list
+      values: (option_value
+        value: (list
+          values: (atom
+            (string))
+          values: (atom
+            (string)))
+        options: (atom
+          (filter_ident)))
+      values: (list
+        values: (atom
+          (string))
+        values: (atom
+          (string))
+        values: (atom
+          (string))
+        values: (atom
+          (ident))
+        values: (atom
+          (string))
+        values: (atom
+          (ident))))))
 
 ================================================================================
 Complex build with multiple conditionals
@@ -108,60 +87,40 @@ build: [
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (option_value
-            value: (value
-              (list
-                values: (value
-                  (atom
-                    (string)))
-                values: (value
-                  (atom
-                    (string)))))
-            options: (value
-              (atom
-                (filter_ident)))))
-        values: (value
-          (list
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (ident)))
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (ident)))
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (option_value
-                value: (value
-                  (atom
-                    (string)))
-                options: (value
-                  (atom
-                    (filter_ident)))))
-            values: (value
-              (option_value
-                value: (value
-                  (atom
-                    (string)))
-                options: (value
-                  (atom
-                    (filter_ident)))))))))))
+    value: (list
+      values: (option_value
+        value: (list
+          values: (atom
+            (string))
+          values: (atom
+            (string)))
+        options: (atom
+          (filter_ident)))
+      values: (list
+        values: (atom
+          (string))
+        values: (atom
+          (string))
+        values: (atom
+          (string))
+        values: (atom
+          (ident))
+        values: (atom
+          (string))
+        values: (atom
+          (ident))
+        values: (atom
+          (string))
+        values: (option_value
+          value: (atom
+            (string))
+          options: (atom
+            (filter_ident)))
+        values: (option_value
+          value: (atom
+            (string))
+          options: (atom
+            (filter_ident)))))))
 
 ================================================================================
 Build with variable interpolation
@@ -185,39 +144,28 @@ build: [
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (list
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (ident)))
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (string
-                  (interpolation
-                    (interpolation_content)))))))))))
+    value: (list
+      values: (list
+        values: (atom
+          (string))
+        values: (atom
+          (string))
+        values: (atom
+          (string))
+        values: (atom
+          (ident))
+        values: (atom
+          (string))
+        values: (atom
+          (string))
+        values: (atom
+          (string))
+        values: (atom
+          (string))
+        values: (atom
+          (string
+            (interpolation
+              (interpolation_content))))))))
 
 ================================================================================
 OCaml bootstrap build
@@ -233,45 +181,30 @@ build: [
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (list
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (ident)))))
-        values: (value
-          (list
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (ident)))))))))
+    value: (list
+      values: (list
+        values: (atom
+          (string))
+        values: (atom
+          (string))
+        values: (atom
+          (string))
+        values: (atom
+          (ident)))
+      values: (list
+        values: (atom
+          (string))
+        values: (atom
+          (string))
+        values: (atom
+          (string))
+        values: (atom
+          (string))
+        values: (atom
+          (string))
+        values: (atom
+          (string))
+        values: (atom
+          (string))
+        values: (atom
+          (ident))))))

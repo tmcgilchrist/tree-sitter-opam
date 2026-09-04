@@ -9,11 +9,9 @@ maintainer: ["Jane Street Group, LLC <opensource@janestreet.com>"]
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (atom
-            (string)))))))
+    value: (list
+      values: (atom
+        (string)))))
 
 ================================================================================
 Multiple maintainers
@@ -29,14 +27,11 @@ maintainer: [
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (atom
-            (string)))
-        values: (value
-          (atom
-            (string)))))))
+    value: (list
+      values: (atom
+        (string))
+      values: (atom
+        (string)))))
 
 ================================================================================
 Authors list
@@ -49,14 +44,11 @@ authors: ["Jérôme Vouillon" "Jérémie Dimino"]
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (atom
-            (string)))
-        values: (value
-          (atom
-            (string)))))))
+    value: (list
+      values: (atom
+        (string))
+      values: (atom
+        (string)))))
 
 ================================================================================
 Custom x-fields
@@ -70,16 +62,13 @@ x-maintenance-intent: ["(latest)"]
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (atom
-        (string))))
+    value: (atom
+      (string)))
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (atom
-            (string)))))))
+    value: (list
+      values: (atom
+        (string)))))
 
 ================================================================================
 Flags
@@ -92,9 +81,8 @@ flags: avoid-version
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (atom
-        (ident)))))
+    value: (atom
+      (ident))))
 
 ================================================================================
 Multiple flags
@@ -107,17 +95,13 @@ flags: [light-uninstall verbose plugin-install]
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (atom
-            (ident)))
-        values: (value
-          (atom
-            (ident)))
-        values: (value
-          (atom
-            (ident)))))))
+    value: (list
+      values: (atom
+        (ident))
+      values: (atom
+        (ident))
+      values: (atom
+        (ident)))))
 
 ================================================================================
 Tags
@@ -130,11 +114,8 @@ tags: ["org:ocaml" "topics:build-system"]
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (atom
-            (string)))
-        values: (value
-          (atom
-            (string)))))))
+    value: (list
+      values: (atom
+        (string))
+      values: (atom
+        (string)))))

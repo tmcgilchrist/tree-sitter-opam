@@ -11,18 +11,14 @@ depends: [
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (option_value
-            value: (value
-              (atom
-                (string)))
-            options: (value
-              (prefix_relop
-                operator: (relop)
-                value: (atom
-                  (string))))))))))
+    value: (list
+      values: (option_value
+        value: (atom
+          (string))
+        options: (prefix_relop
+          operator: (relop)
+          value: (atom
+            (string)))))))
 
 ================================================================================
 Multiple version constraints with AND
@@ -37,25 +33,19 @@ depends: [
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (option_value
-            value: (value
-              (atom
-                (string)))
-            options: (value
-              (logop_value
-                left: (value
-                  (prefix_relop
-                    operator: (relop)
-                    value: (atom
-                      (string))))
-                right: (value
-                  (prefix_relop
-                    operator: (relop)
-                    value: (atom
-                      (string))))))))))))
+    value: (list
+      values: (option_value
+        value: (atom
+          (string))
+        options: (logop_value
+          left: (prefix_relop
+            operator: (relop)
+            value: (atom
+              (string)))
+          right: (prefix_relop
+            operator: (relop)
+            value: (atom
+              (string))))))))
 
 ================================================================================
 Dependencies with filters
@@ -72,46 +62,32 @@ depends: [
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (option_value
-            value: (value
-              (atom
-                (string)))
-            options: (value
-              (logop_value
-                left: (value
-                  (atom
-                    (filter_ident)))
-                right: (value
-                  (prefix_relop
-                    operator: (relop)
-                    value: (atom
-                      (string))))))))
-        values: (value
-          (option_value
-            value: (value
-              (atom
-                (string)))
-            options: (value
-              (logop_value
-                left: (value
-                  (atom
-                    (filter_ident)))
-                right: (value
-                  (prefix_relop
-                    operator: (relop)
-                    value: (atom
-                      (string))))))))
-        values: (value
-          (option_value
-            value: (value
-              (atom
-                (string)))
-            options: (value
-              (atom
-                (filter_ident)))))))))
+    value: (list
+      values: (option_value
+        value: (atom
+          (string))
+        options: (logop_value
+          left: (atom
+            (filter_ident))
+          right: (prefix_relop
+            operator: (relop)
+            value: (atom
+              (string)))))
+      values: (option_value
+        value: (atom
+          (string))
+        options: (logop_value
+          left: (atom
+            (filter_ident))
+          right: (prefix_relop
+            operator: (relop)
+            value: (atom
+              (string)))))
+      values: (option_value
+        value: (atom
+          (string))
+        options: (atom
+          (filter_ident))))))
 
 ================================================================================
 Exact version match
@@ -126,23 +102,17 @@ depends: [
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (option_value
-            value: (value
-              (atom
-                (string)))
-            options: (value
-              (logop_value
-                left: (value
-                  (atom
-                    (filter_ident)))
-                right: (value
-                  (prefix_relop
-                    operator: (relop)
-                    value: (atom
-                      (string))))))))))))
+    value: (list
+      values: (option_value
+        value: (atom
+          (string))
+        options: (logop_value
+          left: (atom
+            (filter_ident))
+          right: (prefix_relop
+            operator: (relop)
+            value: (atom
+              (string))))))))
 
 ================================================================================
 Optional dependencies (depopts)
@@ -155,17 +125,13 @@ depopts: ["base-threads" "base-unix" "conf-libev"]
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (atom
-            (string)))
-        values: (value
-          (atom
-            (string)))
-        values: (value
-          (atom
-            (string)))))))
+    value: (list
+      values: (atom
+        (string))
+      values: (atom
+        (string))
+      values: (atom
+        (string)))))
 
 ================================================================================
 Conflicts section
@@ -181,25 +147,18 @@ conflicts: [
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (option_value
-            value: (value
-              (atom
-                (string)))
-            options: (value
-              (prefix_relop
-                operator: (relop)
-                value: (atom
-                  (string))))))
-        values: (value
-          (option_value
-            value: (value
-              (atom
-                (string)))
-            options: (value
-              (prefix_relop
-                operator: (relop)
-                value: (atom
-                  (string))))))))))
+    value: (list
+      values: (option_value
+        value: (atom
+          (string))
+        options: (prefix_relop
+          operator: (relop)
+          value: (atom
+            (string))))
+      values: (option_value
+        value: (atom
+          (string))
+        options: (prefix_relop
+          operator: (relop)
+          value: (atom
+            (string)))))))

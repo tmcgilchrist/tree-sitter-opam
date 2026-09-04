@@ -43,7 +43,7 @@ module.exports = grammar({
       seq(
         field('name', $.ident),
         ':',
-        field('value', $.value),
+        field('value', $._value),
       ),
 
     // Sections: ident { items } or ident "string" { items }
@@ -56,8 +56,10 @@ module.exports = grammar({
         '}',
       ),
 
-    // Values
-    value: ($) =>
+    // Values (hidden rule — purely a grouping choice, so it should not
+    // appear as a named node in the tree; its children are promoted to
+    // direct children of the enclosing node)
+    _value: ($) =>
       choice(
         $.atom,
         $.group,
@@ -81,14 +83,14 @@ module.exports = grammar({
     group: ($) =>
       prec(
         PREC.ATOM,
-        seq('(', field('values', repeat($.value)), ')'),
+        seq('(', field('values', repeat($._value)), ')'),
       ),
 
     // Lists: [value1 value2 ...]
     list: ($) =>
       prec(
         PREC.ATOM,
-        seq('[', field('values', repeat($.value)), ']'),
+        seq('[', field('values', repeat($._value)), ']'),
       ),
 
     // Options: value {value1 value2 ...}
@@ -96,9 +98,9 @@ module.exports = grammar({
       prec.right(
         PREC.OPTION,
         seq(
-          field('value', $.value),
+          field('value', $._value),
           '{',
-          field('options', repeat($.value)),
+          field('options', repeat($._value)),
           '}',
         ),
       ),
@@ -108,11 +110,11 @@ module.exports = grammar({
       choice(
         prec.left(
           PREC.AND,
-          seq(field('left', $.value), '&', field('right', $.value)),
+          seq(field('left', $._value), '&', field('right', $._value)),
         ),
         prec.left(
           PREC.OR,
-          seq(field('left', $.value), '|', field('right', $.value)),
+          seq(field('left', $._value), '|', field('right', $._value)),
         ),
       ),
 
@@ -149,7 +151,7 @@ module.exports = grammar({
     pfxop_value: ($) =>
       prec(
         PREC.PFXOP,
-        seq(field('operator', $.pfxop), field('value', $.value)),
+        seq(field('operator', $.pfxop), field('value', $._value)),
       ),
 
     // Relational operators: =, !=, >=, >, <=, <, ~

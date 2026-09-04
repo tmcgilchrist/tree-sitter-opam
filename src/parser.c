@@ -69,7 +69,7 @@ enum ts_symbol_identifiers {
   sym__item = 47,
   sym_variable = 48,
   sym_section = 49,
-  sym_value = 50,
+  sym__value = 50,
   sym_atom = 51,
   sym_filter_ident = 52,
   sym_group = 53,
@@ -146,7 +146,7 @@ static const char * const ts_symbol_names[] = {
   [sym__item] = "_item",
   [sym_variable] = "variable",
   [sym_section] = "section",
-  [sym_value] = "value",
+  [sym__value] = "_value",
   [sym_atom] = "atom",
   [sym_filter_ident] = "filter_ident",
   [sym_group] = "group",
@@ -223,7 +223,7 @@ static const TSSymbol ts_symbol_map[] = {
   [sym__item] = sym__item,
   [sym_variable] = sym_variable,
   [sym_section] = sym_section,
-  [sym_value] = sym_value,
+  [sym__value] = sym__value,
   [sym_atom] = sym_atom,
   [sym_filter_ident] = sym_filter_ident,
   [sym_group] = sym_group,
@@ -450,8 +450,8 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = true,
   },
-  [sym_value] = {
-    .visible = true,
+  [sym__value] = {
+    .visible = false,
     .named = true,
   },
   [sym_atom] = {
@@ -1573,7 +1573,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block_comment] = ACTIONS(3),
   },
   [STATE(2)] = {
-    [sym_value] = STATE(30),
+    [sym__value] = STATE(30),
     [sym_atom] = STATE(22),
     [sym_filter_ident] = STATE(24),
     [sym_group] = STATE(31),
@@ -1621,7 +1621,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block_comment] = ACTIONS(3),
   },
   [STATE(3)] = {
-    [sym_value] = STATE(30),
+    [sym__value] = STATE(30),
     [sym_atom] = STATE(22),
     [sym_filter_ident] = STATE(24),
     [sym_group] = STATE(31),
@@ -1667,7 +1667,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block_comment] = ACTIONS(3),
   },
   [STATE(4)] = {
-    [sym_value] = STATE(30),
+    [sym__value] = STATE(30),
     [sym_atom] = STATE(22),
     [sym_filter_ident] = STATE(24),
     [sym_group] = STATE(31),
@@ -1713,7 +1713,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block_comment] = ACTIONS(3),
   },
   [STATE(5)] = {
-    [sym_value] = STATE(30),
+    [sym__value] = STATE(30),
     [sym_atom] = STATE(22),
     [sym_filter_ident] = STATE(24),
     [sym_group] = STATE(31),
@@ -1759,7 +1759,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block_comment] = ACTIONS(3),
   },
   [STATE(6)] = {
-    [sym_value] = STATE(30),
+    [sym__value] = STATE(30),
     [sym_atom] = STATE(22),
     [sym_filter_ident] = STATE(24),
     [sym_group] = STATE(31),
@@ -1805,7 +1805,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block_comment] = ACTIONS(3),
   },
   [STATE(7)] = {
-    [sym_value] = STATE(30),
+    [sym__value] = STATE(30),
     [sym_atom] = STATE(22),
     [sym_filter_ident] = STATE(24),
     [sym_group] = STATE(31),
@@ -1851,7 +1851,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block_comment] = ACTIONS(3),
   },
   [STATE(8)] = {
-    [sym_value] = STATE(30),
+    [sym__value] = STATE(30),
     [sym_atom] = STATE(22),
     [sym_filter_ident] = STATE(24),
     [sym_group] = STATE(31),
@@ -1897,7 +1897,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block_comment] = ACTIONS(3),
   },
   [STATE(9)] = {
-    [sym_value] = STATE(30),
+    [sym__value] = STATE(30),
     [sym_atom] = STATE(22),
     [sym_filter_ident] = STATE(24),
     [sym_group] = STATE(31),
@@ -1943,7 +1943,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block_comment] = ACTIONS(3),
   },
   [STATE(10)] = {
-    [sym_value] = STATE(30),
+    [sym__value] = STATE(30),
     [sym_atom] = STATE(22),
     [sym_filter_ident] = STATE(24),
     [sym_group] = STATE(31),
@@ -1989,7 +1989,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block_comment] = ACTIONS(3),
   },
   [STATE(11)] = {
-    [sym_value] = STATE(30),
+    [sym__value] = STATE(30),
     [sym_atom] = STATE(22),
     [sym_filter_ident] = STATE(24),
     [sym_group] = STATE(31),
@@ -2035,7 +2035,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block_comment] = ACTIONS(3),
   },
   [STATE(12)] = {
-    [sym_value] = STATE(30),
+    [sym__value] = STATE(30),
     [sym_atom] = STATE(22),
     [sym_filter_ident] = STATE(24),
     [sym_group] = STATE(31),
@@ -2081,7 +2081,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block_comment] = ACTIONS(3),
   },
   [STATE(13)] = {
-    [sym_value] = STATE(30),
+    [sym__value] = STATE(30),
     [sym_atom] = STATE(22),
     [sym_filter_ident] = STATE(24),
     [sym_group] = STATE(31),
@@ -2127,7 +2127,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block_comment] = ACTIONS(3),
   },
   [STATE(14)] = {
-    [sym_value] = STATE(30),
+    [sym__value] = STATE(30),
     [sym_atom] = STATE(22),
     [sym_filter_ident] = STATE(24),
     [sym_group] = STATE(31),
@@ -2173,7 +2173,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block_comment] = ACTIONS(3),
   },
   [STATE(15)] = {
-    [sym_value] = STATE(80),
+    [sym__value] = STATE(80),
     [sym_atom] = STATE(44),
     [sym_filter_ident] = STATE(49),
     [sym_group] = STATE(82),
@@ -2217,7 +2217,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block_comment] = ACTIONS(3),
   },
   [STATE(16)] = {
-    [sym_value] = STATE(84),
+    [sym__value] = STATE(84),
     [sym_atom] = STATE(44),
     [sym_filter_ident] = STATE(49),
     [sym_group] = STATE(82),
@@ -2261,7 +2261,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block_comment] = ACTIONS(3),
   },
   [STATE(17)] = {
-    [sym_value] = STATE(85),
+    [sym__value] = STATE(85),
     [sym_atom] = STATE(44),
     [sym_filter_ident] = STATE(49),
     [sym_group] = STATE(82),
@@ -2305,7 +2305,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block_comment] = ACTIONS(3),
   },
   [STATE(18)] = {
-    [sym_value] = STATE(86),
+    [sym__value] = STATE(86),
     [sym_atom] = STATE(44),
     [sym_filter_ident] = STATE(49),
     [sym_group] = STATE(82),
@@ -2349,7 +2349,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block_comment] = ACTIONS(3),
   },
   [STATE(19)] = {
-    [sym_value] = STATE(38),
+    [sym__value] = STATE(38),
     [sym_atom] = STATE(22),
     [sym_filter_ident] = STATE(24),
     [sym_group] = STATE(31),
@@ -2393,7 +2393,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block_comment] = ACTIONS(3),
   },
   [STATE(20)] = {
-    [sym_value] = STATE(34),
+    [sym__value] = STATE(34),
     [sym_atom] = STATE(22),
     [sym_filter_ident] = STATE(24),
     [sym_group] = STATE(31),
@@ -2437,7 +2437,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block_comment] = ACTIONS(3),
   },
   [STATE(21)] = {
-    [sym_value] = STATE(39),
+    [sym__value] = STATE(39),
     [sym_atom] = STATE(22),
     [sym_filter_ident] = STATE(24),
     [sym_group] = STATE(31),
@@ -4653,8 +4653,8 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [98] = {.entry = {.count = 1, .reusable = false}}, SHIFT(46),
   [100] = {.entry = {.count = 1, .reusable = false}}, SHIFT(65),
   [102] = {.entry = {.count = 1, .reusable = true}}, SHIFT(66),
-  [104] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_value, 1, 0, 0),
-  [106] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_value, 1, 0, 0),
+  [104] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym__value, 1, 0, 0),
+  [106] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym__value, 1, 0, 0),
   [108] = {.entry = {.count = 1, .reusable = false}}, SHIFT(57),
   [110] = {.entry = {.count = 1, .reusable = true}}, SHIFT(58),
   [112] = {.entry = {.count = 1, .reusable = false}}, SHIFT(58),

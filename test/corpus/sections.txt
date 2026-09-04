@@ -17,19 +17,15 @@ url {
     kind: (ident)
     items: (variable
       name: (ident)
-      value: (value
-        (atom
-          (string))))
+      value: (atom
+        (string)))
     items: (variable
       name: (ident)
-      value: (value
-        (list
-          values: (value
-            (atom
-              (string)))
-          values: (value
-            (atom
-              (string))))))))
+      value: (list
+        values: (atom
+          (string))
+        values: (atom
+          (string))))))
 
 ================================================================================
 URL section with md5 checksum
@@ -50,19 +46,15 @@ url {
     kind: (ident)
     items: (variable
       name: (ident)
-      value: (value
-        (atom
-          (string))))
+      value: (atom
+        (string)))
     items: (variable
       name: (ident)
-      value: (value
-        (list
-          values: (value
-            (atom
-              (string)))
-          values: (value
-            (atom
-              (string))))))))
+      value: (list
+        values: (atom
+          (string))
+        values: (atom
+          (string))))))
 
 ================================================================================
 Named section
@@ -81,14 +73,12 @@ extra-source "patch.diff" {
     name: (string)
     items: (variable
       name: (ident)
-      value: (value
-        (atom
-          (string))))
+      value: (atom
+        (string)))
     items: (variable
       name: (ident)
-      value: (value
-        (atom
-          (string))))))
+      value: (atom
+        (string)))))
 
 ================================================================================
 Empty section
@@ -122,13 +112,11 @@ extra-files {
     kind: (ident)
     items: (variable
       name: (ident)
-      value: (value
-        (atom
-          (string)))))
+      value: (atom
+        (string))))
   (section
     kind: (ident)
     items: (variable
       name: (ident)
-      value: (value
-        (atom
-          (string))))))
+      value: (atom
+        (string)))))

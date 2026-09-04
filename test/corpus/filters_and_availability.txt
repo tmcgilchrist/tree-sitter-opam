@@ -9,13 +9,12 @@ available: os != "win32"
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (relop_value
-        left: (atom
-          (ident))
-        operator: (relop)
-        right: (atom
-          (string))))))
+    value: (relop_value
+      left: (atom
+        (ident))
+      operator: (relop)
+      right: (atom
+        (string)))))
 
 ================================================================================
 Architecture filter
@@ -28,13 +27,12 @@ available: arch != "x86_32"
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (relop_value
-        left: (atom
-          (ident))
-        operator: (relop)
-        right: (atom
-          (string))))))
+    value: (relop_value
+      left: (atom
+        (ident))
+      operator: (relop)
+      right: (atom
+        (string)))))
 
 ================================================================================
 Opam version filter
@@ -47,13 +45,12 @@ available: opam-version >= "2.1.0"
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (relop_value
-        left: (atom
-          (ident))
-        operator: (relop)
-        right: (atom
-          (string))))))
+    value: (relop_value
+      left: (atom
+        (ident))
+      operator: (relop)
+      right: (atom
+        (string)))))
 
 ================================================================================
 Complex OS filter with AND
@@ -66,22 +63,19 @@ available: os != "win32" & arch = "x86_64"
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (logop_value
-        left: (value
-          (relop_value
-            left: (atom
-              (ident))
-            operator: (relop)
-            right: (atom
-              (string))))
-        right: (value
-          (relop_value
-            left: (atom
-              (ident))
-            operator: (relop)
-            right: (atom
-              (string))))))))
+    value: (logop_value
+      left: (relop_value
+        left: (atom
+          (ident))
+        operator: (relop)
+        right: (atom
+          (string)))
+      right: (relop_value
+        left: (atom
+          (ident))
+        operator: (relop)
+        right: (atom
+          (string))))))
 
 ================================================================================
 Complex filter with OR
@@ -94,22 +88,19 @@ available: os = "linux" | os = "macos"
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (logop_value
-        left: (value
-          (env_binding
-            variable: (atom
-              (ident))
-            operator: (envop)
-            value: (atom
-              (string))))
-        right: (value
-          (relop_value
-            left: (atom
-              (ident))
-            operator: (relop)
-            right: (atom
-              (string))))))))
+    value: (logop_value
+      left: (env_binding
+        variable: (atom
+          (ident))
+        operator: (envop)
+        value: (atom
+          (string)))
+      right: (relop_value
+        left: (atom
+          (ident))
+        operator: (relop)
+        right: (atom
+          (string))))))
 
 ================================================================================
 Negation filter
@@ -124,19 +115,14 @@ depends: [
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (option_value
-            value: (value
-              (atom
-                (string)))
-            options: (value
-              (pfxop_value
-                operator: (pfxop)
-                value: (value
-                  (atom
-                    (ident)))))))))))
+    value: (list
+      values: (option_value
+        value: (atom
+          (string))
+        options: (pfxop_value
+          operator: (pfxop)
+          value: (atom
+            (ident)))))))
 
 ================================================================================
 Defined check filter
@@ -151,19 +137,14 @@ depends: [
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (option_value
-            value: (value
-              (atom
-                (string)))
-            options: (value
-              (pfxop_value
-                operator: (pfxop)
-                value: (value
-                  (atom
-                    (ident)))))))))))
+    value: (list
+      values: (option_value
+        value: (atom
+          (string))
+        options: (pfxop_value
+          operator: (pfxop)
+          value: (atom
+            (ident)))))))
 
 ================================================================================
 Solo filter ident
@@ -176,16 +157,12 @@ depends: ["pkg" {build}]
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (option_value
-            value: (value
-              (atom
-                (string)))
-            options: (value
-              (atom
-                (filter_ident)))))))))
+    value: (list
+      values: (option_value
+        value: (atom
+          (string))
+        options: (atom
+          (filter_ident))))))
 
 ================================================================================
 Negated filter ident
@@ -198,19 +175,14 @@ depends: ["pkg" {!build}]
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (option_value
-            value: (value
-              (atom
-                (string)))
-            options: (value
-              (pfxop_value
-                operator: (pfxop)
-                value: (value
-                  (atom
-                    (filter_ident)))))))))))
+    value: (list
+      values: (option_value
+        value: (atom
+          (string))
+        options: (pfxop_value
+          operator: (pfxop)
+          value: (atom
+            (filter_ident)))))))
 
 ================================================================================
 Combined filter idents
@@ -223,21 +195,15 @@ depends: ["pkg" {build & with-test}]
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (option_value
-            value: (value
-              (atom
-                (string)))
-            options: (value
-              (logop_value
-                left: (value
-                  (atom
-                    (filter_ident)))
-                right: (value
-                  (atom
-                    (filter_ident)))))))))))
+    value: (list
+      values: (option_value
+        value: (atom
+          (string))
+        options: (logop_value
+          left: (atom
+            (filter_ident))
+          right: (atom
+            (filter_ident)))))))
 
 ================================================================================
 All seven filter idents
@@ -258,64 +224,42 @@ depends: [
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (option_value
-            value: (value
-              (atom
-                (string)))
-            options: (value
-              (atom
-                (filter_ident)))))
-        values: (value
-          (option_value
-            value: (value
-              (atom
-                (string)))
-            options: (value
-              (atom
-                (filter_ident)))))
-        values: (value
-          (option_value
-            value: (value
-              (atom
-                (string)))
-            options: (value
-              (atom
-                (filter_ident)))))
-        values: (value
-          (option_value
-            value: (value
-              (atom
-                (string)))
-            options: (value
-              (atom
-                (filter_ident)))))
-        values: (value
-          (option_value
-            value: (value
-              (atom
-                (string)))
-            options: (value
-              (atom
-                (filter_ident)))))
-        values: (value
-          (option_value
-            value: (value
-              (atom
-                (string)))
-            options: (value
-              (atom
-                (filter_ident)))))
-        values: (value
-          (option_value
-            value: (value
-              (atom
-                (string)))
-            options: (value
-              (atom
-                (filter_ident)))))))))
+    value: (list
+      values: (option_value
+        value: (atom
+          (string))
+        options: (atom
+          (filter_ident)))
+      values: (option_value
+        value: (atom
+          (string))
+        options: (atom
+          (filter_ident)))
+      values: (option_value
+        value: (atom
+          (string))
+        options: (atom
+          (filter_ident)))
+      values: (option_value
+        value: (atom
+          (string))
+        options: (atom
+          (filter_ident)))
+      values: (option_value
+        value: (atom
+          (string))
+        options: (atom
+          (filter_ident)))
+      values: (option_value
+        value: (atom
+          (string))
+        options: (atom
+          (filter_ident)))
+      values: (option_value
+        value: (atom
+          (string))
+        options: (atom
+          (filter_ident))))))
 
 ================================================================================
 Filter ident as field name stays ident
@@ -330,19 +274,13 @@ build: [
 (source_file
   (variable
     name: (ident)
-    value: (value
-      (list
-        values: (value
-          (list
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (string)))
-            values: (value
-              (atom
-                (ident)))))))))
+    value: (list
+      values: (list
+        values: (atom
+          (string))
+        values: (atom
+          (string))
+        values: (atom
+          (string))
+        values: (atom
+          (ident))))))

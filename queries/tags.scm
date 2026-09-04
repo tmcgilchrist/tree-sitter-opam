@@ -4,39 +4,32 @@
 (variable
   name: (ident) @_name
   (#eq? @_name "name")
-  value: (value
-    (atom
-      (string) @name))) @definition.package
+  value: (atom
+    (string) @name)) @definition.package
 
 ; Package version (the 'version' field)
 (variable
   name: (ident) @_version
   (#eq? @_version "version")
-  value: (value
-    (atom
-      (string) @name))) @definition.version
+  value: (atom
+    (string) @name)) @definition.version
 
 ; Dependencies with options - matches package names in depends/conflicts/depopts
 (variable
   name: (ident) @_field
   (#match? @_field "^(depends|conflicts|depopts)$")
-  value: (value
-    (list
-      (value
-        (option_value
-          value: (value
-            (atom
-              (string) @name))))))) @reference.dependency
+  value: (list
+    (option_value
+      value: (atom
+        (string) @name)))) @reference.dependency
 
 ; Plain dependencies - matches package names in depends/conflicts/depopts
 (variable
   name: (ident) @_field
   (#match? @_field "^(depends|conflicts|depopts)$")
-  value: (value
-    (list
-      (value
-        (atom
-          (string) @name))))) @reference.dependency
+  value: (list
+    (atom
+      (string) @name))) @reference.dependency
 
 ; Generic variable definitions (for navigation)
 (variable
