@@ -1,5 +1,7 @@
 # tree-sitter-opam
 
+[![crates.io](https://img.shields.io/crates/v/tree-sitter-opam.svg)](https://crates.io/crates/tree-sitter-opam)
+
 Tree-sitter grammar for [opam](https://opam.ocaml.org/) package manager files.
 
 ## Overview
@@ -17,7 +19,9 @@ This grammar provides syntax highlighting and parsing support for opam package d
 
 ## Installation
 
-Nothing published to package repositories just yet, it's still in development.
+### Cargo
+
+The crate is published on [crates.io](https://crates.io/crates/tree-sitter-opam).
 
 ## Usage
 
