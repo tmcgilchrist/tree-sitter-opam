@@ -1,3 +1,7 @@
+# Unreleased
+- #22: Package only the top-level LICENSE in the crate, not those under
+  node_modules
+
 # 0.1.1 (2026-11-11)
 - #16: Pin the tree-sitter CLI to 0.27.0 and the ABI to 14, and fix the Go
   binding, which did not compile the external scanner
