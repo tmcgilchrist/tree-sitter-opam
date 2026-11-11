@@ -4,3 +4,4 @@ Initial release.
 
 - #18: Test the Rust crate in CI, and publish releases to crates.io by
   trusted publishing instead of npm
+- #21: Build the scanner without C compiler warnings about unused parameters
