@@ -1,7 +1,7 @@
 [package]
 name = "tree-sitter-opam"
 description = "Tree-sitter grammar for opam package manager files"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Tim McGilchrist <timmcgil@gmail.com>"]
 keywords = ["incremental", "parsing", "opam", "ocaml"]
 categories = ["parsing", "text-editors"]
