@@ -7,6 +7,7 @@ keywords = ["incremental", "parsing", "opam", "ocaml"]
 categories = ["parsing", "text-editors"]
 repository = "https://github.com/tmcgilchrist/tree-sitter-opam"
 edition = "2021"
+rust-version = "1.90"
 license = "MIT"
 readme = "README.md"
 autoexamples = false
