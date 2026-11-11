@@ -6,16 +6,22 @@ enum TokenType {
 
 void *tree_sitter_opam_external_scanner_create(void) { return NULL; }
 
-void tree_sitter_opam_external_scanner_destroy(void *payload) {}
+void tree_sitter_opam_external_scanner_destroy(void *payload) { (void)payload; }
 
 unsigned tree_sitter_opam_external_scanner_serialize(void *payload,
                                                      char *buffer) {
+  (void)payload;
+  (void)buffer;
   return 0;
 }
 
 void tree_sitter_opam_external_scanner_deserialize(void *payload,
                                                    const char *buffer,
-                                                   unsigned length) {}
+                                                   unsigned length) {
+  (void)payload;
+  (void)buffer;
+  (void)length;
+}
 
 static void advance(TSLexer *lexer) { lexer->advance(lexer, false); }
 
@@ -28,6 +34,8 @@ static void skip_whitespace(TSLexer *lexer) {
 
 bool tree_sitter_opam_external_scanner_scan(void *payload, TSLexer *lexer,
                                             const bool *valid_symbols) {
+  (void)payload;
+
   if (!valid_symbols[BLOCK_COMMENT]) {
     return false;
   }
